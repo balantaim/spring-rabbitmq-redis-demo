@@ -30,13 +30,11 @@ public class MessageEventListener {
         //Get already stored event
         log.info("Get stored event\n {}", getEventById(event.id()));
     }
-    
 
     private FatalMessage getEventById(String eventId) {
         Optional<FatalMessage> data = eventRedisService.getEventById(eventId);
         return data.orElse(null);
     }
-
 
     private List<FatalMessage> getAllEvents() {
         final List<FatalMessage> events = eventRedisService.getAllEvents();

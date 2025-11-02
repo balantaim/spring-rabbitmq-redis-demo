@@ -1,13 +1,14 @@
-# Spring, RabbitMQ, Redis demo app
+# AsyncBridge
+
+## Description
+
+A lightweight, event-driven microservice system built with Spring and Java 21. The `producer` service asynchronously publishes messages via RabbitMQ, while the `consumer` stores processed data in Redis. All components run in Docker containers with security-hardened, non-root JRE images.
 
 ## Software
 
-Tools: Java21, Spring, RabbitMQ, Redis, Docker
+<b>Tools:</b> Java 21, Spring, RabbitMQ, Redis, Docker
 
-## RabbitMQ UI
-http://localhost:15672
-
-## Setup - Localhost
+## Setup - Local
 
 Startup RabbitMQ and Redis containers
 
@@ -18,15 +19,23 @@ cd rabbitmq-producer/
 docker compose up -d
 ```
 
-Startup "rabbitmq-consumer" and "rabbitmq-producer". You could use the script inside the project's directory:
+Startup `rabbitmq-consumer` and `rabbitmq-producer`. You could use the script inside the project's directory:
 
 ```bash
 ./mvnw spring-boot:run
 ```
 
-## Setup - Via Docker network
+## Setup - Via Docker network (Recommended)
 
-- Not ready yet!
+Build from Docker file inside the root directory
+
+```bash
+docker compose up -d
+```
+
+- RabbitMQ UI http://localhost:15672
+- Redis UI (redisinsight) http://localhost:5540
+- REST Controller endpoint http://localhost:8080/api/v1/message
 
 ## Test the application
 

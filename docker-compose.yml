@@ -1,4 +1,3 @@
-
 services:
   rabbitmq:
     image: rabbitmq:3-management
@@ -46,8 +45,8 @@ services:
       - SPRING_RABBITMQ_USERNAME=user
       - SPRING_RABBITMQ_PASSWORD=password
     depends_on:
-      - rabbitmq
-      - redis
+      rabbitmq:
+        condition: service_healthy
     networks:
       - app-network
 
@@ -71,6 +70,18 @@ services:
         condition: service_healthy
     networks:
       - app-network
+
+# Redis UI (Optional)
+  redisinsight:
+    image: redis/redisinsight:latest
+    container_name: redisinsight
+    ports:
+      - "5540:5540"
+    networks:
+      - app-network
+    depends_on:
+      redis:
+        condition: service_healthy
 
 volumes:
   redis-data:
