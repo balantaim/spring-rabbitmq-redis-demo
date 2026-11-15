@@ -1,7 +1,7 @@
-package com.martinatanasov.consumer.listeners;
+package com.martinatanasov.consumer.listener;
 
 import com.martinatanasov.consumer.model.FatalMessage;
-import com.martinatanasov.consumer.services.EventRedisService;
+import com.martinatanasov.consumer.service.EventRedisService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

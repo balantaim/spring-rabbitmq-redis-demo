@@ -1,4 +1,4 @@
-package com.martinatanasov.consumer.services;
+package com.martinatanasov.consumer.service;
 
 import com.martinatanasov.consumer.model.FatalMessage;
 import lombok.RequiredArgsConstructor;
